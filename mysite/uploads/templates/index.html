@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Site d'upload de fichiers.</title>
+</head>
+<body>
+{% block content %}
+
+<h2>Page d'accueil - connexion.</h2>
+
+<form method="post" enctype="multipart/form-data"> 
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Connexion</button>
+  </form>
+
+<p><a href="{% url 'upload' %}">Accès à la page d'upload.</a><p> 
+{% endblock %}
+
+</body>
+</html> 

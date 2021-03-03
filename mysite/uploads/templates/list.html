@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Site d'upload de fichiers.</title>
+</head>
+<body>
+
+
+{% block content %}
+<h2>Liste personnalisée des documents. </h2>
+
+<form method="post" enctype="multipart/form-data"> 
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Téléverser le document.</button>
+  </form>
+   
+<p><a href="{% url 'index' %}">Retour à l'index.</a><p> 
+{% endblock %}
+
+</body>
+</html> 
