@@ -32,7 +32,7 @@ def upload(request):
         form = FileForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-        return render(request, "list.html", {"form": form})
+        return render(request, "list_file.html", {"form": form})
     else:
         form = FileForm()
     return render(request, "upload.html", {"form": form})
@@ -49,5 +49,18 @@ def upload(request):
         return render(request, 'upload.html', context)"""
 
 
-def list(request):
-    return HttpResponseRedirect("list")
+def list_person(request, uuid):
+    
+    if uuid < 1:
+        return 0
+    listing = [] 
+    for person in uuid:
+        listing.append(person.listing)
+    return (request, "list_person.html")
+
+def get_queryset(self):
+    return Person.objects.all()
+
+
+def list_file(request):
+    return HttpResponseRedirect("list_file")

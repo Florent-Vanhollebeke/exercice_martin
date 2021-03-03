@@ -24,7 +24,7 @@ app_name = 'uploads'
 urlpatterns = [
     path('', views.index, name='index'),
     path('upload/', views.upload, name='upload'),
-    path('list/' , views.list, name = 'list'),   
+    path('list_file/' , views.list_file, name = 'list_file'),   
     path('admin/', admin.site.urls),    
 ]
 
