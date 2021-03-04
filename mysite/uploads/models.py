@@ -9,13 +9,12 @@ from django.db import models
 
 
 class Person(models.Model):
-
-    uuid = models.UUIDField(default=uuid.uuid4, editable=False)
+    uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
 
     def __str__(self):
-        return f"{self.first_name}, {self.last_name}"
+        return "%s %s" % (self.first_name, self.last_name)
 
 
 """
@@ -31,7 +30,7 @@ class File(models.Model):
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.title}, {self.content}"
+        return "%s %s" % (self.title, self.content)
 
 
 """

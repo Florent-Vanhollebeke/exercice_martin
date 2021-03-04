@@ -1,4 +1,5 @@
 """mysite URL Configuration
+
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
 Examples:
@@ -22,11 +23,11 @@ from uploads import views
 app_name = 'uploads'
 urlpatterns = [
     path('', views.index, name='index'),
-    path('list_person/' , views.list_person, name = 'list_person'),
     path('upload/', views.upload, name='upload'),
-    path('list_file/', views.list_file, name = 'list_file'),
+    path('list/' , views.list, name = 'list'),   
     path('admin/', admin.site.urls),    
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

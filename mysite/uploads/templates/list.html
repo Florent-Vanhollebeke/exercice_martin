@@ -7,18 +7,16 @@
 
 
 {% block content %}
+<h2>Liste personnalisée des documents. </h2>
 
-<h2>Page d'upload des documents.</h2>
 <form method="post" enctype="multipart/form-data"> 
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Joindre le document.</button>
+    <button type="submit">Téléverser le document.</button>
   </form>
    
-<p><a href="{% url 'list' %}">Accès à la liste.</a><p> 
-<p><a href="{% url 'index' %}">Retour à l'accueil.</a><p> 
+<p><a href="{% url 'index' %}">Retour à l'index.</a><p> 
 {% endblock %}
 
 </body>
 </html> 
-
