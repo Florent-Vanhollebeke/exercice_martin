@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Site d'upload de fichiers.</title>
+  <meta charset="utf-8">
+  <title>Site d'upload de fichiers.</title>
 </head>
 <body>
 {% block content %}
 
-<h2>Page d'accueil - connexion.</h2>
+<h2>Page d'accueil du site Upload</h2>
+
+<h3>Connexion</h3>
 
 <form method="post" enctype="multipart/form-data"> 
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Connexion</button>
+    <button type="submit">Se connecter</button>
   </form>
 
-<p><a href="{% url 'upload' %}">Accès à la page d'upload.</a><p> 
+<p><a href="{% url 'upload' %}">Accès à la page "upload".</a><p> 
+<p><a href="{% url 'list_person' %}">Accès à la page "liste des personnes."</a><p> 
+<p><a href="{% url 'list_file' %}">Accès à la page "liste des fichiers".</a><p> 
 {% endblock %}
 
 </body>

@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Site d'upload de fichiers.</title>
+    <meta charset="utf-8">
+    <title>Liste des fichiers personnels sur le site Upload.</title>
 </head>
 <body>
 
+<h2>Liste de vos fichiers personnels.</h2>
 
 {% block content %}
-<h2>Liste personnalisée des documents. </h2>
 
-<form method="post" enctype="multipart/form-data"> 
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Téléverser le document.</button>
-  </form>
-   
-<p><a href="{% url 'index' %}">Retour à l'index.</a><p> 
+<h1>{{ person.uuid }}</h1>
+<ul>
+{% for file in person.file_set.all  %}
+
+    <li>{{ file.content }}</li>
+
+{% endfor %}
+</ul>
+
+<p><a href="{% url 'index' %}">Retour à l'accueil.</a><p> 
 {% endblock %}
 
 </body>
